@@ -1,0 +1,191 @@
+:root{
+    --smallBorderRadius: 0.5rem;
+    --mediumBorderRadius: 1rem;
+    --largeBorderRadius: 2rem;
+    --accentColor: rgb(255, 215, 0);
+    --linkColor: rgb(255, 230, 75);
+    --linkColorHover: rgb(250, 150, 0);
+    --background: linear-gradient(to bottom right, rgb(150, 0, 200), rgb(0, 150, 200));
+}
+::selection{
+    color: rgb(50, 150, 200);
+    background: rgb(100, 85, 0);
+}
+body{
+    font-family: Bahnschrift light;
+    background: rgb(75, 75, 200);
+    min-height: 100vh;
+    margin: 0;
+    color: var(--accentColor);
+    display: flex;
+}
+main{
+    width: 100%;
+}
+.header{
+    background: linear-gradient(to bottom right,rgba(255, 217, 0, 0.25), rgba(0, 238, 255, 0.25));
+    border-top-right-radius: var(--mediumBorderRadius);
+    border-bottom-right-radius: var(--mediumBorderRadius);
+    min-width: 250px;
+}
+.navClass{
+    transition: 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+    text-align: left;
+}
+.navBar{
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: column; 
+    position: fixed;
+    margin: 1rem 1rem;
+    top: 12.5rem;
+    z-index: 2;
+    list-style-type: none;
+    border-radius: var(--smallBorderRadius);
+    align-items: left;
+    align-content: center;
+    text-align: left;
+    justify-content: space-around;
+    transition: 0.5s cubic-bezier(0.5, 0, 0.5, 1)
+}
+.navBar a::before{
+    content: '⟫ ';
+}
+.navBar a{
+    color: var(--accentColor);
+    text-decoration: none;
+    display: block;
+    font-size: 100%;
+    text-align: left;
+    font-weight: bolder;
+    padding: 0.75rem 1rem;
+    border-radius: var(--smallBorderRadius);
+    transition: 0.5s ease-in-out;
+}
+.navBar a:hover{
+    color: var(--linkColorHover);
+    background: rgb(0, 39, 122);
+    transform: translateX(0.5rem);
+}
+.navBar a:active{
+    outline: 2px double black;
+    border: 2px double black;
+}
+#introductory{
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.2rem;
+    padding: 5rem 1.5rem;
+    font-size: 200%;
+    position: fixed;
+    font-weight: bolder;
+}
+h1{
+    text-align: center;
+    padding: 2rem;
+    right: 0;
+    font-size: 225%;
+}
+section{
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.375);
+    background: rgba(0, 0, 0, 0.125);
+    border-radius: var(--largeBorderRadius);
+    margin: 5rem 12.5%;
+    align-content: center;
+    align-items: center;
+    right: 0;
+    z-index: 1.5;
+}
+section p{
+    padding: 2rem;
+    line-height: 1.75;
+    font-size: 17.5px;
+    backdrop-filter: blur(15px);
+}
+@media(max-width: 800px){
+    body{
+        display: flex;
+        flex-direction: column;
+        font-size: 75%;
+    }
+    #introductory{
+        display: block;
+        text-align: center;
+        line-height: 1.5;
+        letter-spacing: 0.2rem;
+        padding: 5rem 1.5rem;
+        font-size: 500%;
+        position: sticky;
+        font-weight: bolder;
+    }
+    .navClass{
+        border-radius: 0px;
+    }
+    .navBar{
+        flex-direction: row;
+        top: 0px;
+        background: rgba(255, 255, 255, 0.25);
+        margin: 0;
+        width: 100%;
+        gap: 1%;
+        border-radius: 0px;
+    }
+    .navBar a{
+        text-align: center;
+    }
+    .navBar a::before{
+        content: "⨈";
+        display: block;
+    }
+    .navBar a:hover{
+        transform: translateY(0);
+        transition: 0.3s ease-in-out;
+    }
+    .navBar a:hover::after{
+        content: '';
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+        transform: translateX(0%);
+        width: 100%;
+        height: 0.5rem;
+        background-color: blue;
+        border-radius: 0.5rem;
+    }
+    .header{
+        min-width: 100%;
+    }
+    section{
+        min-width: 90%;
+        margin: 2.5rem 5%;
+    }
+}
+@media(max-width: 425px){
+    #introductory{
+        font-size: 400%;
+    }
+    .navBar{
+        flex-direction: column;
+        width: 37.5%;
+        border-top-right-radius: var(--largeBorderRadius);
+        border-bottom-right-radius: var(--largeBorderRadius);
+    }
+    .navBar a{
+        padding: 0.25rem;
+        font-size: 125%;
+        color: rgb(238, 255, 0);
+        line-height: 1.5;
+    }   
+    .navBar a:hover::after{
+        content: '';
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+        transform: translateX(0%);
+        width: 100%;
+        height: 0.25rem;
+        background-color: blue;
+        border-radius: 0.5rem;
+    }
+}

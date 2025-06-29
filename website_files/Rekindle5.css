@@ -1,0 +1,15 @@
+body{
+    font-family: Asap;
+}
+#introductory{
+    font-size: 150%;
+    text-align: center;
+    background: black;
+    color: white;
+}
+#why{
+    font-size: 112.5%;
+    text-align: center;
+    background: black;
+    color: white;
+}

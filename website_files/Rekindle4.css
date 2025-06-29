@@ -1,0 +1,33 @@
+body {
+    font-family: Asap;
+    height: 100vh;
+    margin: 0px;
+    background: black;
+    color: white;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    border-radius: 1rem;
+    width: 500px;
+    border: solid 3px transparent;
+    border-image: linear-gradient(to bottom right, rgb(0, 0, 255), lightblue, lightgreen, rgb(0, 255, 0));
+    border-image-slice: 1;
+}
+
+fieldset div {
+    margin: 1rem 2rem;
+}
+
+summary {
+    padding: 5px;
+}
+
+legend {
+    font-size: 150%;
+}

@@ -1,0 +1,13 @@
+let title = 'Quadratic equation solver'
+console.log(title)
+console.log(`Input a, b and c for ax² + bx + c = 0\n`)
+let a1 = prompt('Input a: ')
+let b1 = prompt('Input b: ')
+let c1 = prompt('Input c: ')
+let a = Number(a1)
+let b = Number(b1)
+let c = Number(c1)
+let quadratic_positive = (-b + ((b ** 2 - (4 * a * c)) ** (1 / 2))) / (2 * a)
+let quadratic_negative = (-b - ((b ** 2 - (4 * a * c)) ** (1 / 2))) / (2 * a)
+console.log(`x1 = ${quadratic_positive} and x2 = ${quadratic_negative}`)
+console.log('If output is NaN then your input wasn\'t a number, please rerun and input real numbers') 

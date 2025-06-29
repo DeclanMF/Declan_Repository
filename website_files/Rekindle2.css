@@ -1,0 +1,93 @@
+body {
+	font-family: Asap;
+	margin: 0px;
+	font-weight: lighter;
+	background-image: url("file:///C:/Users/mercy/OneDrive/Documents/momentum%20backdrop.png");
+}
+.main{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: space-around;
+}
+.content {
+	backdrop-filter: blur(10px);
+	border-radius: 1.75rem;
+	width: 300px;
+	padding: 1rem;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+	text-align: center;
+	color: rgb(0, 0, 0);
+	border: 2px double rgb(175, 207, 255);
+	background: rgba(174, 180, 255, 0.5);
+	border-radius: 1.75rem;
+	align-content: center;
+	display: block;
+	padding: 0.75rem 2.5rem;
+}
+
+.signin-options {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border-radius: 1.75rem;
+	background: rgb(40, 90, 200);
+}
+
+.signin-options h3 {
+	padding: 1.5rem 1rem;
+	transition: 0.3s ease-in-out;
+	margin: 0px;
+	text-align: center;
+	color: white;
+	background: rgb(75, 102, 161);
+}
+
+.signin-options h3:hover {
+	background: rgb(0, 23, 90);
+	color: rgb(255, 255, 255);
+}
+
+.log-options {
+	border-radius: 1.75rem;
+	background: rgba(0, 128, 255, 0.25);
+}
+
+#signup-options {
+	text-align: center;
+	color: white;
+	padding: 1rem 0px;
+	transition: 0.3s ease-in-out;
+	background: rgb(84, 119, 155);
+	border-radius: 2.5rem;
+}
+
+#signup-options:hover {
+	background: rgb(0, 23, 90);
+}
+
+hr {
+	height: 0.1px;
+	margin: 0px;
+	color: rgb(255, 255, 255);
+}
+
+#first-option {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 1.75rem;
+	border-top-right-radius: 1.75rem;
+}
+
+#last-option {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 1.75rem;
+	border-bottom-right-radius: 1.75rem;
+}

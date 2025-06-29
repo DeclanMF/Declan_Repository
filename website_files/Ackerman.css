@@ -1,0 +1,324 @@
+::selection {
+    background-color: rgb(94, 0, 138);
+    color: rgb(164, 229, 255);
+}
+
+body {
+    font-family: Bahnschrift light;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin: 0;
+    background: rgb(247, 247, 247);
+}
+
+#heading {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bolder;
+    display: inline-block;
+    margin: 1rem;
+    color: rgb(63, 63, 63);
+    align-items: center;
+    align-content: center;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    background: rgb(218, 218, 255);
+}
+
+#nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background: rgb(188, 188, 255);
+}
+
+#nav-wrap img {
+    border-radius: 100%;
+    margin: 1rem 1rem 1rem 1rem;
+    height: 200px;
+    width: 200px;
+    border: 1px solid blue;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    animation: grow 10s ease-in-out infinite;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.05, 1.05);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.nav-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.nav-class a {
+    color: black;
+    text-decoration: none;
+    margin: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 0.25rem;
+    background: rgb(153, 153, 255);
+    transition: 0.1s ease-in-out;
+}
+
+#nav-dropdown {
+    display: none;
+}
+
+.nav-links:hover #nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(168, 168, 255, 0.625);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+#nav-button {
+    border: 1px solid blue;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    min-width: 10%;
+    padding: 0.125rem 0.5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    background-color: rgba(168, 168, 255, 0.25);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    transition: 0.2s ease-in-out;
+    animation: y-iteration 1s ease-in-out infinite;
+}
+
+.nav-links:hover #nav-button {
+    border: 1px solid rgb(0, 0, 160);
+    background-color: rgba(168, 168, 255, 0.75);
+}
+
+@keyframes y-iteration {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    12.5% {
+        transform: rotate(0.5deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+    }
+
+    37.5% {
+        transform: rotate(4.5deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+
+    62.5% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(0deg);
+    }
+
+    87.5% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.nav-class a:hover {
+    color: aliceblue;
+    background-color: rgb(61, 61, 255, 0.75);
+    transform: translateX(0.375rem)
+}
+
+h2 {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: rgb(109, 109, 109);
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 6.25%;
+    height: 5px;
+    background-color: blue;
+    border-radius: 2rem;
+}
+
+#preemptive {
+    font-size: 1.25rem;
+    margin: 3rem 12.5rem;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 2rem;
+    line-height: 2.25;
+    box-shadow: 0 0 10px rgb(211, 211, 211);
+    background-color: rgb(255, 255, 255);
+}
+
+#preemptive a {
+    color: rgb(0, 0, 70);
+    text-decoration: none;
+}
+
+#preemptive a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.main-content {
+    margin: 2.5rem;
+}
+
+h3 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 3rem;
+    position: relative;
+    margin: 3rem;
+    color: rgb(90, 90, 90);
+}
+
+section p {
+    line-height: 2;
+}
+
+.form-class {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    border-left: 2px solid blue;
+    margin: 2rem 10rem;
+    border-radius: 2rem;
+    gap: 2rem;
+    width: 75%;
+    background: rgb(215, 215, 255);
+}
+
+.form-class p {
+    text-align: center;
+    margin: 1rem 12.5% 1rem 12.5%;
+    padding: 2rem 0;
+    color: rgb(100, 100, 100);
+}
+
+.form {
+    background: rgb(255, 255, 255);
+    border-radius: 2rem;
+    margin: 2rem;
+    width: 100%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.label {
+    display: block;
+    margin: 0.5rem 12.5% 0.5rem 12.5%;
+    font-weight: bolder;
+    color: rgb(100, 100, 100);
+}
+
+.Signin,
+.Signup {
+    display: block;
+    width: 70%;
+    margin: 0.5rem 12.5% 0.5rem 12.5%;
+    text-align: left;
+    align-items: center;
+    padding: 0.75rem;
+    color: rgb(100, 100, 100);
+    font-size: 1rem;
+    font-family: Bahnschrift light;
+    background: rgb(250, 250, 250);
+    border-radius: 0.5rem;
+    border: 1px solid blue;
+    transition: 0.1s ease-in-out;
+}
+
+.Signin:focus,
+.Signup:focus {
+    outline: none;
+    border: 1px solid rgb(255, 0, 255);
+}
+
+#login-button,
+#signup-button {
+    width: 7.5rem;
+    text-align: center;
+    padding: 0.25rem;
+    font-size: 1.125rem;
+    font-family: Bahnschrift light;
+    border-radius: 0.375rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: 36%;
+    align-items: center;
+    align-content: center;
+    border: 1px solid blue;
+    transition: 0.1s ease-in-out;
+}
+
+#login-button:hover,
+#signup-button:hover {
+    background: rgb(110, 110, 255);
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+#login-button:disabled,
+#signup-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+footer {
+    padding: 1rem;
+    background: rgb(30, 0, 199);
+    color: rgb(225, 223, 255);
+    font-size: 1.1;
+    text-align: center;
+}
+
+.footer a {
+    color: skyblue;
+}

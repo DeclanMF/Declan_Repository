@@ -4,22 +4,19 @@ def quadratic_equation(a, b, c):
     """
     while True:
         try:
-            a1 = float(a)
-            b1 = float(b)
-            c1 = float(c)
+            a1 =      float(a)
+            b1 =            float(b)
+            c1 =           float(c)
             quadratic_alpha_root = 0
             quadratic_beta_root = 0
-            determinant = (b1 ** 2 - (4 * a1 * c1))
-            if determinant >= 0:
-                quadratic_alpha_root = (-b1 +
-                                        (determinant ** (1 / 2))) / (2 * a1)
-                quadratic_beta_root = (-b1 -
-                                       (determinant ** (1 / 2))) / (2 * a1)
+            discriminant = (b1 ** 2 - (4 * a1 * c1))
+            if discriminant >= 0:
+                quadratic_alpha_root = (-b1 + (discriminant ** (1 / 2))) / (2 * a1)
+                quadratic_beta_root = (-b1 - (discriminant ** (1 / 2))) / (2 * a1)
                 break
-            elif determinant < 0:
-                print(f'No real roots exist, although roots = '
-                      f'{(-b1 + (determinant ** (1 / 2))) / (2 * a1)}'
-                      f'and {(-b1 - (determinant ** (1 / 2))) / (2 * a1)}')
+            elif discriminant < 0:
+                print(f'No real roots exist, although roots = {(-b1 + (discriminant ** (1 / 2))) / (2 * a1)} and '
+                      f'{(-b1 - (discriminant ** (1 / 2))) / (2 * a1)}')
                 print('Re-enter valid values')
                 continue
         except Exception as e:
@@ -80,8 +77,7 @@ def rectangle_circle_area_perimeter_finder():
                 result = f'Area is {area} and perimeter is {perimeter}'
                 break
             elif shape == 'c':
-                radius = float(
-                    input('For a circle, the radius is all we need: '))
+                radius = float(input('For a circle, the radius is all we need: '))
                 perimeter = 2 * pi * radius
                 area = pi * radius ** 2
                 result = f'Area is {area} and perimeter is {perimeter}'
@@ -118,6 +114,8 @@ def test_questions():
             print(f'Fatal error encountered: {e}')
             continue
     return f'You got {output}/{len(questions)}'
+
+
 
 
 def calculator():
