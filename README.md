@@ -1,2 +1,2 @@
-# G1itchRepository
-G1itches repository
+# Declan's Repository
+Declan's repository
