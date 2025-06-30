@@ -5,7 +5,6 @@ __Module and function training__
 """
 import random
 import time
-from time import sleep
 from math import pi
 
 
@@ -17,7 +16,7 @@ def quadratic_equation(a, b, c):
         try:
             quadratic_alpha_root = 0
             quadratic_beta_root = 0
-            determinant = (b ** 2 - (4 * a * c))
+            determinant = b ** 2 - (4 * a * c)
             if determinant >= 0:
                 quadratic_alpha_root = (-b +
                                         (determinant ** (1 / 2))) / (2 * a)
@@ -26,39 +25,33 @@ def quadratic_equation(a, b, c):
                 result = f'{quadratic_alpha_root} and {quadratic_beta_root}'
                 return result
             if determinant < 0:
-                return f'No real roots exist, Complex roots are {(-b + (determinant ** (1 / 2))) / (2 * a)} and {(-b - (determinant ** (1 / 2))) / (2 * a)}'
+                return 'No real roots exist, Complex roots are {(-b + (determinant ** (1 / 2))) / (2 * a)} and {(-b - (determinant ** (1 / 2))) / (2 * a)}'
         except ZeroDivisionError:
-            print(f'Cannot divide by zero')
+            print('Cannot divide by zero')
             continue
-        except IndexError:
-            print(f'Input valid values')
+        except (IndexError,ValueError):
+            print('Input valid values')
             continue
         except Exception as e:
             print(f'Fatal error experienced: {e}')
             continue
 
 
-def square_limit_finder(number):
+def square_limit_finder(limit, step):
     """
     Using iteration gap, limit and the steps
-    This program finds all the numbers having their squares between 0 and the
-    limit alongside their squares, delay time is added for fancy work
+    This program finds all the numbers having their squares
+    between 0 and the limit alongside their squares
     """
     iteration = 0
-    step = input('Input the steps to iterate through: ')
-    delay_time = input('Input the time for each new line to appear: ')
-    result = 0
     try:
-        number1 = float(number)
-        step1 = float(step)
-        time1 = float(delay_time)
-        while iteration ** 2 <= number1:
-            iteration += step1
+        while iteration ** 2 <= limit:
+            iteration += step
             print(f'{iteration}² = {iteration ** 2}')
-            sleep(time1)
+    except (IndexError, ValueError):
+        print('Re-enter values to used')
     except Exception as e:
         print(f'Fatal error experienced: {e}')
-    return result
 
 
 def rectangle_circle_area_perimeter_finder():
@@ -84,7 +77,7 @@ def rectangle_circle_area_perimeter_finder():
                 area = pi * (radius ** 2)
                 result = f'Area is {area} and perimeter is {perimeter}'
                 break
-            
+
         except ZeroDivisionError:
             print('Cannot divide by zero')
         except Exception as e:
@@ -157,6 +150,9 @@ def calculator():
 
 
 def whatsapp_simulation():
+    """
+    Whatsapp login
+    """
     whatsapp_init_login()
     print('Configuring, Please wait...')
     time.sleep(5)
@@ -166,10 +162,14 @@ def whatsapp_simulation():
     time.sleep(2)
     print('Fatal error')
 
+
 def whatsapp_init_login():
-    name = 'Whatsapp'
+    """
+    Initializes whatsapp login experience
+    """
+    app_name = 'Whatsapp'
     index = 1
-    print(f'Welcome to {name}')
+    print(f'Welcome to {app_name}')
     time.sleep(2)
     print('Input your phone number: ')
     phone_number = input()
@@ -195,7 +195,7 @@ def whatsapp_init_login():
         print('You have been verified')
     elif signup_decision == 4:
         time.sleep(1)
-        print(f'{name} calling...')
+        print(f'{app_name} calling...')
         print('1. Answer')
         print('2. Decline')
         iv = input()
@@ -205,6 +205,8 @@ def whatsapp_init_login():
             print('Answer to verify')
     else:
         print('Please input validly')
+
+
 def six_digit_random():
     """
     Generates six pseudo-random numbers
@@ -226,5 +228,4 @@ def six_digit_random():
         time.sleep(1)
         print('Verify your account or create a new one')
     return number
-
 
