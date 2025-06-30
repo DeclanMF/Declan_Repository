@@ -25,11 +25,11 @@ def quadratic_equation(a, b, c):
                 result = f'{quadratic_alpha_root} and {quadratic_beta_root}'
                 return result
             if determinant < 0:
-                return 'No real roots exist, Complex roots are {(-b + (determinant ** (1 / 2))) / (2 * a)} and {(-b - (determinant ** (1 / 2))) / (2 * a)}'
+                return f'No real roots exist, Complex roots are {(-b + (determinant ** (1 / 2))) / (2 * a)} and {(-b - (determinant ** (1 / 2))) / (2 * a)}'
         except ZeroDivisionError:
             print('Cannot divide by zero')
             continue
-        except (IndexError,ValueError):
+        except (IndexError, ValueError):
             print('Input valid values')
             continue
         except Exception as e:
@@ -228,4 +228,3 @@ def six_digit_random():
         time.sleep(1)
         print('Verify your account or create a new one')
     return number
-
