@@ -14,25 +14,25 @@ def quadratic_equation(a, b, c):
     """
     while True:
         try:
-            quadratic_alpha_root = 0
-            quadratic_beta_root = 0
+            ά = 0
+            β = 0
             determinant = b ** 2 - (4 * a * c)
             if determinant >= 0:
-                quadratic_alpha_root = (-b +
-                                        (determinant ** (1 / 2))) / (2 * a)
-                quadratic_beta_root = (-b -
-                                       (determinant ** (1 / 2))) / (2 * a)
-                result = f'{quadratic_alpha_root} and {quadratic_beta_root}'
+                ά = (-b + (determinant ** (1 / 2))) / (2 * a)
+                β = (-b - (determinant ** (1 / 2))) / (2 * a)
+                result = f'{ά} and {β}'
                 return result
-            if determinant < 0:
-                return f'No real roots exist, Complex roots are {(-b + (determinant ** (1 / 2))) / (2 * a)} and {(-b - (determinant ** (1 / 2))) / (2 * a)}'
+            else:
+                ά = (-b + (determinant ** 0.5)) / (2 * a)
+                β = (-b - (determinant ** 0.5)) / (2 * a)
+                return (f'No real roots. Complex roots: {ά} and {β}')
         except ZeroDivisionError:
             print('Cannot divide by zero')
             continue
         except (IndexError, ValueError):
             print('Input valid values')
             continue
-        except Exception as e:
+        except TypeError as e:
             print(f'Fatal error experienced: {e}')
             continue
 
@@ -46,11 +46,11 @@ def square_limit_finder(limit, step):
     iteration = 0
     try:
         while iteration ** 2 <= limit:
-            iteration += step
             print(f'{iteration}² = {iteration ** 2}')
+            iteration += step
     except (IndexError, ValueError):
         print('Re-enter values to used')
-    except Exception as e:
+    except TypeError as e:
         print(f'Fatal error experienced: {e}')
 
 
@@ -60,29 +60,26 @@ def rectangle_circle_area_perimeter_finder():
     """
     print('Are we working on a [r]ectangle or a [c]ircle? ')
     result = str()
-    while True:
-        shape = input()
-        try:
-            if shape == 'r':
-                length = float(input('What\'s the length? '))
-                breadth = float(input('And the breadth? '))
-                perimeter = (length + breadth) * 2
-                area = length * breadth
-                result = f'Area is {area} and perimeter is {perimeter}'
-                break
-            if shape == 'c':
-                radius = float(
-                    input('For a circle, the radius is all we need: '))
-                perimeter = 2 * pi * radius
-                area = pi * (radius ** 2)
-                result = f'Area is {area} and perimeter is {perimeter}'
-                break
-
-        except ZeroDivisionError:
-            print('Cannot divide by zero')
-        except Exception as e:
-            print(f'Unexpected error occurred: {e}')
-            continue
+    shape = input()
+    try:
+        if shape == 'r':
+            length = float(input('What\'s the length? '))
+            breadth = float(input('And the breadth? '))
+            perimeter = (length + breadth) * 2
+            area = length * breadth
+            result = f'Area is {area} and perimeter is {perimeter}'
+        if shape == 'c':
+            radius = float(
+                input('For a circle, the radius is all we need: '))
+            perimeter = 2 * pi * radius
+            area = pi * (radius ** 2)
+            result = f'Area is {area} and perimeter is {perimeter}'
+        else:
+            result = 'Invalid shape'
+    except ZeroDivisionError:
+        result = 'Cannot divide by zero'
+    except TypeError as e:
+        result = f'Unexpected error occurred: {e}'
     return result
 
 
@@ -94,23 +91,23 @@ def test_questions():
     print('_' * len(title))
     print(title)
     print('_' * len(title))
-    questions = ['What continent is Guadalupe found? ',
-                 'What country borders USA to the north? ',
-                 'What country uses more than one denomination for 1 value? ',
-                 'What\'s the capital of Russia? ']
-    answers = ['south america', 'canada', 'nigeria', 'moscow']
+    questions = [
+        'What continent is Guadalupe found? ',
+        'What country borders USA to the north? ',
+        'What country uses more than one denomination for 1 value? ',
+        'What\'s the capital of Russia? '
+    ]
+    answers = [
+        'south america',
+        'canada',
+        'nigeria',
+        'moscow'
+    ]
     output = 0
-    while True:
-        try:
-            for question in questions:
-                answer = input(question)
-                for q_answer in answers:
-                    if answer == q_answer:
-                        output += 1
-            break
-        except Exception as e:
-            print(f'Fatal error encountered: {e}')
-            continue
+    for idx, question in enumerate(questions):
+        answer = input(question)
+        if answer.strip().lower() == answers[idx]:
+            output += 1
     return f'You got {output}/{len(questions)}'
 
 
@@ -123,29 +120,26 @@ def calculator():
     print(title.upper())
     print('_' * len(title))
     number = float(input('What is the number? '))
-    operation = input('Operator: ')
+    operation = input('Operator (+, -, *, /, ^, **): ')
     second = float(input('Working on? '))
     result = 0
-    while True:
-        try:
-            if operation == '+':
-                result = f'{number + second}'
-                break
-            if operation == '-':
-                result = f'{number - second}'
-                break
-            if operation == '*':
-                result = f'{number * second}'
-                break
-            if operation == '/':
-                result = f'{number / second}'
-                break
-            if operation == ('^' or '**'):
-                result = f'{number ** second}'
-                break
-        except Exception as e:
-            print(f'Fatal error occurred: {e}')
-            continue
+    try:
+        if operation == '+':
+            result = f'{number + second}'
+        elif operation == '-':
+            result = f'{number - second}'
+        elif operation == '*':
+            result = f'{number * second}'
+        elif operation == '/':
+            result = f'{number / second}'
+        elif operation == ('^' or '**'):
+            result = f'{number ** second}'
+        else:
+            result = 'Invalid operator'
+    except ZeroDivisionError:
+        print('Error: Division by zero')
+    except ValueError:
+        print('Error: Invalid input')
     return result
 
 
@@ -211,7 +205,7 @@ def six_digit_random():
     """
     Generates six pseudo-random numbers
     """
-    number = random.randint(000000, 999999)
+    number = f'{random.randint(0, 999999):06d}'
     print('Type in the number that was sent to your e-mail')
     print(number)
     tries = 4
@@ -222,8 +216,7 @@ def six_digit_random():
             break
         tries -= 1
         print(f'Input invalid, you have {tries} more tries')
-        continue
-    if tries <= 0:
+    else:
         print('You have been locked out!\n')
         time.sleep(1)
         print('Verify your account or create a new one')
